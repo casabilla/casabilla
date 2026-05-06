@@ -10,7 +10,9 @@ body {
     width: 100%;
     min-height: 100vh;
     background: #fff9b3;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Запрещаем горизонтальную прокрутку */
+    overflow-y: auto;
+    position: relative;
 }
 
 .container {
@@ -18,8 +20,9 @@ body {
     width: 100%;
     max-width: 414px;
     margin: 0 auto;
-    min-height: 896px;
-    overflow: visible;
+    min-height: 896px; /* Фиксированная высота iPhone 11 */
+    height: 896px; /* Фиксированная высота */
+    overflow: hidden; /* Убираем прокрутку внутри контейнера */
     background: transparent;
 }
 
@@ -47,9 +50,9 @@ body {
     position: absolute;
     width: 934px;
     height: 623px;
-    top: 120px;
-    left: -160px;
-    transform: rotate(90deg);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
     opacity: 1;
     z-index: 1;
     overflow: hidden;
@@ -61,7 +64,7 @@ body {
     object-fit: cover;
 }
 
-/* 2. BALOONS - исправлено */
+/* 2. BALOONS */
 .balloons {
     width: 300.69px;
     height: 492.93px;
@@ -72,7 +75,7 @@ body {
     z-index: 2;
 }
 
-/* 3. HAPPY BD - исправлено */
+/* 3. HAPPY BD */
 .happy-bd {
     width: 379px;
     height: 183px;
@@ -113,9 +116,11 @@ body {
     transform: rotate(-23deg);
     filter: drop-shadow(5px 4px 4px rgba(0,0,0,0.25));
     z-index: 4;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
-/* 6. HEART STICKER - исправлено */
+/* 6. HEART STICKER */
 .heart {
     width: 95px;
     height: 84px;
@@ -124,9 +129,11 @@ body {
     transform: rotate(10deg);
     filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.25));
     z-index: 6;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
-/* 7. FIRE STICKER - исправлено */
+/* 7. FIRE STICKER */
 .fire {
     width: 93px;
     height: 133px;
@@ -135,9 +142,11 @@ body {
     transform: rotate(24deg);
     filter: drop-shadow(3px 4px 4px rgba(0,0,0,0.25));
     z-index: 7;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
-/* 8. CAKE STICKER - исправлено */
+/* 8. CAKE STICKER */
 .cake {
     width: 121px;
     height: 121px;
@@ -146,6 +155,8 @@ body {
     transform: rotate(9deg);
     filter: drop-shadow(3px 4px 4px rgba(0,0,0,0.25));
     z-index: 8;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 /* 9. Discoball */
@@ -169,7 +180,7 @@ body {
     z-index: 10;
 }
 
-/* 11. CANDLES ICON (кнопка на главной) - ИСПРАВЛЕНО */
+/* 11. CANDLES ICON (кнопка на главной) */
 .candles-icon {
     width: 89px;
     height: 82px;
@@ -184,7 +195,6 @@ body {
     cursor: pointer;
 }
 
-/* Стиль для картинки внутри кнопки свечей */
 .candles-icon img {
     width: 100%;
     height: 100%;
@@ -202,10 +212,9 @@ body {
     z-index: 9999;
     display: none;
     justify-content: center;
-    align-items: flex-start; /* Прижимаем к верху */
-    padding-top: 80px; /* Отступ сверху, чтобы меню не прилипало к самому верху */
+    align-items: flex-start;
+    padding-top: 80px;
 }
-
 
 .menu-overlay.active {
     display: flex;
@@ -217,7 +226,6 @@ body {
     height: 255px;
     background: transparent;
     overflow: hidden;
-    margin-top: -50px;
 }
 
 /* Фон меню */
@@ -258,17 +266,17 @@ body {
 }
 
 /* Иконка свечей в меню */
-/*.menu-candles {
+.menu-candles {
     position: absolute;
     width: 69px;
     height: 62px;
-    top: 0px;
+    top: 10px;
     left: 335px;
     z-index: 10;
     cursor: pointer;
     pointer-events: auto;
     filter: drop-shadow(3px 4px 4px rgba(0,0,0,0.25));
-}*/
+}
 
 .menu-candles img {
     width: 100%;
@@ -288,18 +296,10 @@ body {
     pointer-events: none;
 }
 
-.line1 {
-    top: 63px;
-}
-.line2 {
-    top: 126px;
-}
-.line3 {
-    top: 189px;
-}
-.line4 {
-    top: 255px;
-}
+.line1 { top: 63px; }
+.line2 { top: 126px; }
+.line3 { top: 189px; }
+.line4 { top: 255px; }
 
 /* Пункты меню */
 .menu-item {
@@ -314,14 +314,14 @@ body {
     pointer-events: auto;
     z-index: 10;
     white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .item-gallery {
     width: 82px;
     height: 36px;
     top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .item-who {
@@ -329,8 +329,7 @@ body {
     min-width: 240px;
     height: 40px;
     top: 143px;
-    left: 90px;
-    white-space: nowrap; /* Запрещает перенос на другую строку */
+    white-space: nowrap;
     font-size: 30px;
 }
 
@@ -338,30 +337,8 @@ body {
     width: 74px;
     height: 36px;
     top: 206px;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
-/* Адаптация для мобильных */
-@media (max-width: 414px) {
-    .container {
-        width: 100%;
-    }
-    .menu-panel {
-        width: 100%;
-        max-width: 414px;
-    }
-    .menu-line {
-        width: 100%;
-        max-width: 414px;
-    }
-    .item-who {
-        font-size: 30px;
-        white-space: normal;
-        width: auto;
-        text-align: center;
-    }
-}
 /* Анимация для стикеров при нажатии */
 .cake, .fire, .heart, .uno, .balloons, .happy-bd {
     cursor: pointer;
@@ -393,7 +370,35 @@ body {
     transform: scale(0.95) rotate(-5deg);
     transition: transform 0.05s ease;
 }
+
 .happy-bd:active {
     transform: scale(0.95) rotate(2deg);
     transition: transform 0.05s ease;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 414px) {
+    .container {
+        width: 100%;
+        max-width: 414px;
+    }
+    .menu-panel {
+        width: 100%;
+        max-width: 414px;
+    }
+    .menu-line {
+        width: 100%;
+        max-width: 414px;
+    }
+    .item-who {
+        font-size: 24px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 380px) {
+    .item-who {
+        font-size: 20px;
+        white-space: nowrap;
+    }
 }
