@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const envelopeIcon = lastEnvelope.querySelector('.envelope-icon');
                     const envelopeName = lastEnvelope.querySelector('.envelope-name');
                     if (envelopeIcon) envelopeIcon.textContent = '✉️';
-                    if (envelopeName) envelopeName.textContent = 'From: Me (Special Letter)';
+                    if (envelopeName) envelopeName.textContent = 'From: Me';
                     
                     // Show notification
                     unlockNotification.textContent = '🔓 You\'ve unlocked the secret letter! 🎁';
