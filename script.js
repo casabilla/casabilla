@@ -169,3 +169,29 @@ if (wayfCandlesIcon && !window.location.pathname.includes('index.html')) {
     }
 }
 });
+// Анимация для стикеров на мобильных устройствах
+document.addEventListener('DOMContentLoaded', function() {
+    // Находим все кликабельные стикеры
+    const stickers = document.querySelectorAll('.cake, .fire, .heart, .uno, .balloons, .happy-bd');
+    
+    stickers.forEach(sticker => {
+        // Обработчик для касания (мобильные устройства)
+        sticker.addEventListener('touchstart', function(e) {
+            // Добавляем класс для анимации
+            this.classList.add('tap-active');
+            
+            // Убираем класс через 100ms
+            setTimeout(() => {
+                this.classList.remove('tap-active');
+            }, 100);
+        });
+        
+        // Обработчик для мыши (компьютер)
+        sticker.addEventListener('mousedown', function(e) {
+            this.classList.add('tap-active');
+            setTimeout(() => {
+                this.classList.remove('tap-active');
+            }, 100);
+        });
+    });
+});
