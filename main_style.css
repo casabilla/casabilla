@@ -9,7 +9,7 @@
 body {
     width: 100%;
     min-height: 100vh;
-    background: #fff9b3;
+    background: #FFF8DC;
     overflow-x: hidden; /* Запрещаем горизонтальную прокрутку */
     overflow-y: auto;
     position: relative;
