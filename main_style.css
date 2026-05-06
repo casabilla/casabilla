@@ -265,25 +265,6 @@ body {
     object-fit: contain;
 }
 
-/* Иконка свечей в меню */
-.menu-candles {
-    position: absolute;
-    width: 69px;
-    height: 62px;
-    top: 10px;
-    left: 335px;
-    z-index: 10;
-    cursor: pointer;
-    pointer-events: auto;
-    filter: drop-shadow(3px 4px 4px rgba(0,0,0,0.25));
-}
-
-.menu-candles img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
 /* Линии меню */
 .menu-line {
     position: absolute;
@@ -377,6 +358,7 @@ body {
 }
 
 /* Адаптация для мобильных */
+/* Адаптация для мобильных */
 @media (max-width: 414px) {
     .container {
         width: 100%;
@@ -390,15 +372,17 @@ body {
         width: 100%;
         max-width: 414px;
     }
+    /* Убираем изменение размера шрифта для "who are you from...?" */
     .item-who {
-        font-size: 24px;
+        font-size: 30px; /* Фиксированный размер, не уменьшается */
         white-space: nowrap;
     }
 }
 
 @media (max-width: 380px) {
+    /* Тоже оставляем 30px */
     .item-who {
-        font-size: 20px;
+        font-size: 30px;
         white-space: nowrap;
     }
 }
