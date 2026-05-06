@@ -402,3 +402,33 @@ body {
         white-space: nowrap;
     }
 }
+/* Анимация для стикеров при касании на телефоне */
+.tap-active {
+    transform: scale(0.95) translateY(2px);
+    transition: transform 0.05s ease !important;
+}
+
+/* Индивидуальные повороты для каждого стикера при анимации */
+.cake.tap-active {
+    transform: scale(0.95) rotate(9deg) !important;
+}
+
+.fire.tap-active {
+    transform: scale(0.95) rotate(24deg) !important;
+}
+
+.heart.tap-active {
+    transform: scale(0.95) rotate(10deg) !important;
+}
+
+.uno.tap-active {
+    transform: scale(0.95) rotate(-23deg) !important;
+}
+
+.balloons.tap-active {
+    transform: scale(0.95) rotate(-5deg) !important;
+}
+
+.happy-bd.tap-active {
+    transform: scale(0.95) rotate(2deg) !important;
+}
