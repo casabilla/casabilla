@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #FFF8DC;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.gallery-page {
+    position: relative;
+    width: 100%;
+    max-width: 414px;
+    margin: 0 auto;
+    background: #FFF8DC;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh; /* Добавлено: гарантирует минимальную высоту */
+}
+
+/* Первый слой фона */
+.gallery-page::before {
+    content: '';
+    position: absolute;
+    width: 934px;
+    height: 623px;
+    top: 140px;
+    left: -160px;
+    transform: rotate(90deg);
+    opacity: 1;
+    z-index: 1;
+    background-image: url('old paper pic.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.gallery-back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 10002;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.gallery-back-btn img {
+    width: 30px;
+    height: 30px;
+    transform: rotate(0deg);
+}
+
+/* Заголовок */
+.gallery-title {
+    font-family: 'Cormorant Infant', serif;
+    font-weight: 400;
+    font-size: 48px;
+    text-align: center;
+    color: #563517;
+    margin: 20px 0 30px;
+    position: relative;
+    z-index: 10;
+    letter-spacing: 2px;
+    padding-top: 60px;
+}
+
+/* Сетка галереи - исправлено для устранения пустого места */
+.gallery-grid {
+    position: relative;
+    padding: 20px 15px 0; /* Убран нижний отступ полностью */
+    z-index: 5;
+    /* Важно: без явной высоты, но с relative позиционированием */
+    display: block;
+}
+
+/* ===== ОСНОВНЫЕ ПЕРЕМЕННЫЕ ДЛЯ РЕДАКТИРОВАНИЯ ===== */
+:root {
+    --polaroid-bg: #f5f0e8;
+    --polaroid-padding: 12px;
+    --polaroid-bottom-padding: 35px;
+    --polaroid-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    --photo-border-radius: 0px;
+}
+
+/* Базовый стиль полароида */
+.polaroid {
+    position: absolute;
+    background: var(--polaroid-bg);
+    padding: var(--polaroid-padding) var(--polaroid-padding) var(--polaroid-bottom-padding) var(--polaroid-padding);
+    box-shadow: var(--polaroid-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.polaroid:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 100 !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.polaroid img {
+    display: block;
+    object-fit: cover;
+}
+
+/* ===== РАЗМЕРЫ ПОЛАРОИДОВ ===== */
+.polaroid.vertical {
+    width: 160px;
+}
+
+.polaroid.vertical img {
+    width: 160px;
+    height: 200px;
+}
+
+.polaroid.horizontal {
+    width: 245px;
+}
+
+.polaroid.horizontal img {
+    width: 220px;
+    height: 150px;
+}
+
+.polaroid.small {
+    width: 144px;
+}
+
+.polaroid.small img {
+    width: 120px;
+    height: 150px;
+}
+
+/* ===== ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ===== */
+.polaroid::before {
+    content: '❤️';
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: 18px;
+    opacity: 0.7;
+}
+
+/* Конкретные размеры для фото */
+.photo_together {
+    width: 165px !important;  
+}
+.photo_together img {
+    width: 140px !important;  
+    height: 180px !important; 
+}
+
+.photo_river {
+    width: 165px !important; 
+}
+.photo_river img {
+    width: 140px !important; 
+    height: 180px !important; 
+}
+
+.photo_sunset {
+    width: 165px !important; 
+}
+.photo_sunset img {
+    width: 140px !important; 
+    height: 180px !important; 
+}
+
+.photo_black_jacket {
+    width: 165px !important;
+}
+.photo_black_jacket img {
+    width: 140px !important; 
+    height: 180px !important; 
+}
+
+.Picture_4 {
+    width: 165px !important; 
+}
+.Picture_4 img {
+    width: 140px !important;
+    height: 180px !important;
+}
+
+.Picture_6 {
+    width: 165px !important;
+}
+.Picture_6 img {
+    width: 140px !important;
+    height: 180px !important;
+}
+
+.Picture_1 {
+    width: 165px !important;
+}
+
+.Picture_1 img {
+    width: 140px !important;
+    height: 180px !important;
+}

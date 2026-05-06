@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #2c1a0e;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 414px;
+    height: 896px;
+    margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: transparent;
+}
+
+/* Слои */
+.layer {
+    position: absolute;
+    pointer-events: none;
+}
+
+.layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Old paper фон */
+.old-paper {
+    position: absolute;
+    width: 934px;
+    height: 623px;
+    top: 120px;
+    left: -160px;
+    transform: rotate(90deg);
+    opacity: 1;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.old-paper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Кнопка candles icon */
+.candles-icon {
+    width: 89px;
+    height: 82px;
+    top: 40px;
+    left: 323px;
+    transform: rotate(0deg);
+    opacity: 1;
+    z-index: 30;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.candles-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Заголовок */
+.title {
+    position: absolute;
+    font-family: 'Cormorant Infant', serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 100%;
+    text-align: center;
+    color: #563517;
+    width: 396px;
+    height: 48px;
+    top: 141px;
+    left: 9px;
+    z-index: 20;
+}
+
+/* Карточки-боксы для групп (текст + картинка) */
+.quiz-card {
+    position: absolute;
+    background: rgba(245, 240, 232, 0.75);
+    backdrop-filter: blur(3px);
+    border-radius: 20px;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.quiz-card:hover {
+    transform: scale(1.02);
+    background: rgba(245, 240, 232, 0.9);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-card:active {
+    transform: scale(0.98);
+}
+
+.wayf-back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 10002;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.wayf-back-btn img {
+    width: 30px;
+    height: 30px;
+    transform: rotate(0deg);
+}
+
+/* Карточка 1: Video Game */
+#gameCard {
+    width: 310px;
+    top: 90px;
+    left: 52px;
+}
+
+#gameCard .quiz-icon {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+#gameCard .quiz-label {
+    display: block;
+    font-family: 'Cormorant Infant', serif;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+    color: #563517;
+    margin-top: 10px;
+}
+
+/* Карточка 2: LOL */
+#lolCard {
+    width: 280px;
+    top: 380px;
+    left: 67px;
+}
+
+#lolCard .quiz-icon {
+    width: 160px;
+    height: 105px;
+    object-fit: contain;
+}
+
+#lolCard .quiz-label {
+    font-family: 'Cormorant Infant', serif;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+    color: #563517;
+    margin-top: 10px;
+}
+
+/* Карточка 3: Series */
+#seriesCard {
+    width: 310px;
+    top: 575px;
+    left: 52px;
+}
+
+#seriesCard .quiz-icon {
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+}
+
+#seriesCard .quiz-label {
+    font-family: 'Cormorant Infant', serif;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+    color: #563517;
+    margin-top: 10px;
+}
+
+/* Стиль для текста внутри карточек (если нужен) */
+.quiz-label {
+    font-family: 'Cormorant Infant', serif;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+    color: #563517;
+    margin-top: 10px;
+    line-height: 1.2;
+}
+
+/* МЕНЮ (такое же как на главной) */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 80px;
+}
+
+.menu-overlay.active {
+    display: flex;
+}
+
+.menu-panel {
+    position: relative;
+    width: 414px;
+    height: 255px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.menu-bg {
+    position: absolute;
+    width: 623px;
+    height: 934px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    opacity: 1;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.menu-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-arrow {
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    top: 10px;
+    left: 15px;
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.menu-arrow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.menu-candles {
+    position: absolute;
+    width: 69px;
+    height: 62px;
+    top: 10px;
+    left: 335px;
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: auto;
+    filter: drop-shadow(3px 4px 4px rgba(0,0,0,0.25));
+}
+
+.menu-candles img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.menu-line {
+    position: absolute;
+    left: 0;
+    width: 414px;
+    height: 1px;
+    background-color: #563517;
+    opacity: 1;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.line1 { top: 63px; }
+.line2 { top: 126px; }
+.line3 { top: 189px; }
+.line4 { top: 255px; }
+
+.menu-item {
+    position: absolute;
+    font-family: 'Cormorant Infant', serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 100%;
+    text-align: center;
+    color: #563517;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 10;
+    white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.item-gallery {
+    width: 82px;
+    height: 36px;
+    top: 80px;
+}
+
+.item-who {
+    width: auto;
+    min-width: 240px;
+    height: 36px;
+    top: 143px;
+    white-space: nowrap;
+    font-size: 30px;
+}
+
+.item-letters {
+    width: 74px;
+    height: 36px;
+    top: 206px;
+}
+
+/* Адаптация */
+@media (max-width: 414px) {
+    .menu-panel {
+        width: 100%;
+        max-width: 414px;
+    }
+    .menu-line {
+        width: 100%;
+    }
+}

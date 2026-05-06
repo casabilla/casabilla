@@ -1,0 +1,399 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff9b3;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 414px;
+    margin: 0 auto;
+    min-height: 896px;
+    overflow: visible;
+    background: transparent;
+}
+
+.layer {
+    position: absolute;
+    pointer-events: none;
+}
+
+.layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Кликабельные элементы */
+.candles-icon {
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 20;
+}
+
+/* 1. Old paper pic - самый нижний слой */
+.old-paper {
+    position: absolute;
+    width: 934px;
+    height: 623px;
+    top: 120px;
+    left: -160px;
+    transform: rotate(90deg);
+    opacity: 1;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.old-paper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 2. BALOONS - исправлено */
+.balloons {
+    width: 300.69px;
+    height: 492.93px;
+    top: 322px;
+    left: -70px;
+    transform: rotate(-10deg);
+    filter: drop-shadow(5px 4px 4px rgba(0,0,0,0.25));
+    z-index: 2;
+}
+
+/* 3. HAPPY BD - исправлено */
+.happy-bd {
+    width: 379px;
+    height: 183px;
+    top: 234px;
+    left: 35px;
+    transform: rotate(0deg);
+    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));
+    z-index: 3;
+}
+
+/* 4. Picture_5 */
+.picture5 {
+    width: 119px;
+    height: 169px;
+    top: 507px;
+    left: 106px;
+    transform: rotate(0deg);
+    z-index: 4;
+}
+
+/* 5. Camera no background */
+.camera {
+    width: 348px;
+    height: 225px;
+    top: 530px;
+    left: 17px;
+    transform: rotate(90deg);
+    filter: drop-shadow(5px 4px 4px rgba(0,0,0,0.25));
+    z-index: 5;
+}
+
+/* 5.5. uno card */
+.uno {
+    width: 60px;
+    height: 83px;
+    top: 420px;
+    left: 230px;
+    transform: rotate(-23deg);
+    filter: drop-shadow(5px 4px 4px rgba(0,0,0,0.25));
+    z-index: 4;
+}
+
+/* 6. HEART STICKER - исправлено */
+.heart {
+    width: 95px;
+    height: 84px;
+    top: 448px;
+    left: 318px;
+    transform: rotate(10deg);
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.25));
+    z-index: 6;
+}
+
+/* 7. FIRE STICKER - исправлено */
+.fire {
+    width: 93px;
+    height: 133px;
+    top: 676px;
+    left: 260px;
+    transform: rotate(24deg);
+    filter: drop-shadow(3px 4px 4px rgba(0,0,0,0.25));
+    z-index: 7;
+}
+
+/* 8. CAKE STICKER - исправлено */
+.cake {
+    width: 121px;
+    height: 121px;
+    top: 504px;
+    left: 240px;
+    transform: rotate(9deg);
+    filter: drop-shadow(3px 4px 4px rgba(0,0,0,0.25));
+    z-index: 8;
+}
+
+/* 9. Discoball */
+.discoball {
+    width: 108px;
+    height: 259px;
+    top: 521px;
+    left: 325px;
+    transform: rotate(0deg);
+    z-index: 9;
+}
+
+/* 10. FLAGS */
+.flags {
+    width: 592px;
+    height: 394px;
+    top: -65px;
+    left: -89px;
+    transform: rotate(0deg);
+    filter: drop-shadow(5px 4px 4px rgba(0,0,0,0.25));
+    z-index: 10;
+}
+
+/* 11. CANDLES ICON (кнопка на главной) - ИСПРАВЛЕНО */
+.candles-icon {
+    width: 89px;
+    height: 82px;
+    top: 44px;
+    left: 162px;
+    padding: 10px;
+    gap: 10px;
+    transform: rotate(0deg);
+    opacity: 1;
+    z-index: 30;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Стиль для картинки внутри кнопки свечей */
+.candles-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Меню (оверлей) */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: flex-start; /* Прижимаем к верху */
+    padding-top: 80px; /* Отступ сверху, чтобы меню не прилипало к самому верху */
+}
+
+
+.menu-overlay.active {
+    display: flex;
+}
+
+.menu-panel {
+    position: relative;
+    width: 414px;
+    height: 255px;
+    background: transparent;
+    overflow: hidden;
+    margin-top: -50px;
+}
+
+/* Фон меню */
+.menu-bg {
+    position: absolute;
+    width: 623px;
+    height: 934px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    opacity: 1;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.menu-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Стрелка закрытия */
+.menu-arrow {
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    top: 7px;
+    left: 15px;
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.menu-arrow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Иконка свечей в меню */
+/*.menu-candles {
+    position: absolute;
+    width: 69px;
+    height: 62px;
+    top: 0px;
+    left: 335px;
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: auto;
+    filter: drop-shadow(3px 4px 4px rgba(0,0,0,0.25));
+}*/
+
+.menu-candles img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Линии меню */
+.menu-line {
+    position: absolute;
+    left: 0;
+    width: 414px;
+    height: 1px;
+    background-color: #563517;
+    opacity: 1;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.line1 {
+    top: 63px;
+}
+.line2 {
+    top: 126px;
+}
+.line3 {
+    top: 189px;
+}
+.line4 {
+    top: 255px;
+}
+
+/* Пункты меню */
+.menu-item {
+    position: absolute;
+    font-family: 'Cormorant Infant', serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 100%;
+    text-align: center;
+    color: #563517;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.item-gallery {
+    width: 82px;
+    height: 36px;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.item-who {
+    width: auto;
+    min-width: 240px;
+    height: 40px;
+    top: 143px;
+    left: 90px;
+    white-space: nowrap; /* Запрещает перенос на другую строку */
+    font-size: 30px;
+}
+
+.item-letters {
+    width: 74px;
+    height: 36px;
+    top: 206px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 414px) {
+    .container {
+        width: 100%;
+    }
+    .menu-panel {
+        width: 100%;
+        max-width: 414px;
+    }
+    .menu-line {
+        width: 100%;
+        max-width: 414px;
+    }
+    .item-who {
+        font-size: 30px;
+        white-space: normal;
+        width: auto;
+        text-align: center;
+    }
+}
+/* Анимация для стикеров при нажатии */
+.cake, .fire, .heart, .uno, .balloons, .happy-bd {
+    cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.1s ease;
+}
+
+.cake:active {
+    transform: scale(0.95) rotate(9deg);
+    transition: transform 0.05s ease;
+}
+
+.fire:active {
+    transform: scale(0.95) rotate(24deg);
+    transition: transform 0.05s ease;
+}
+
+.heart:active {
+    transform: scale(0.95) rotate(10deg);
+    transition: transform 0.05s ease;
+}
+
+.uno:active {
+    transform: scale(0.95) rotate(-23deg);
+    transition: transform 0.05s ease;
+}
+
+.balloons:active {
+    transform: scale(0.95) rotate(-5deg);
+    transition: transform 0.05s ease;
+}
+.happy-bd:active {
+    transform: scale(0.95) rotate(2deg);
+    transition: transform 0.05s ease;
+}

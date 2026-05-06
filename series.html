@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <title>TV Series Quiz - Who are you?</title>
+    <link rel="stylesheet" href="series_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Background -->
+        <div class="layer old-paper">
+            <img src="old paper pic.jpg" alt="old paper background">
+        </div>
+
+        <!-- Back button -->
+        <div class="back-btn" id="backBtn">
+            <img src="arrow icon.png" alt="back">
+        </div>
+
+        <!-- Title -->
+        <h1 class="quiz-title">who are you from a series?</h1>
+
+        <!-- Progress bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="question-counter" id="questionCounter">Question 1 / 18</div>
+
+        <!-- Question container -->
+        <div class="question-card" id="questionCard">
+            <p class="question-text" id="questionText">Loading...</p>
+            <div class="answers-container" id="answersContainer"></div>
+            <button class="back-question-btn" id="backQuestionBtn" style="display: none;">← previous question</button>
+        </div>
+
+        <!-- Result container -->
+        <div class="result-card" id="resultCard" style="display: none;">
+            <h2 class="result-title">You are...</h2>
+            <div class="result-character" id="resultCharacter"></div>
+            <div class="result-image-container" id="resultImageContainer">
+                <img src="" alt="your character" id="resultImage" style="width: 200px; height: auto; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+            </div>
+            <div class="result-description" id="resultDescription"></div>
+            <button class="restart-btn" id="restartBtn">take the test again</button>
+        </div>
+    </div>
+
+    <script src="series.js"></script>
+</body>
+</html>
