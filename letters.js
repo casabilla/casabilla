@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-     // Track which letters have been opened
-    let openedLetters = [false, false, false, false, false, false]; // 6 letters (index 0-5)
+    // Track which letters have been opened - теперь 7 писем
+    let openedLetters = [false, false, false, false, false, false, false]; // 7 letters (index 0-6)
     let totalOpened = 0;
-    const totalLetters = 6;
-    const lastLetterIndex = 5; // The 6th letter (index 5) is your special letter
+    const totalLetters = 7;
+    const lastLetterIndex = 6; // The 7th letter (index 6) is your special letter
     
     // Get elements
     const backBtn = document.getElementById('backBtn');
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             totalOpened++;
             
             // Check if all letters except the last one are opened
-            // The last letter becomes accessible after 5 letters are opened (totalLetters - 1)
+            // The last letter becomes accessible after 6 letters are opened (totalLetters - 1)
             if (totalOpened >= totalLetters - 1 && !openedLetters[lastLetterIndex]) {
                 // Unlock the last letter
                 const lastEnvelope = envelopes[lastLetterIndex].envelope;
@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (envelopeName) envelopeName.textContent = 'From: Me (Special Letter)';
                     
                     // Show notification
+                    unlockNotification.textContent = '🔓 You\'ve unlocked the secret letter! 🎁';
                     unlockNotification.classList.add('show');
                     setTimeout(() => {
                         unlockNotification.classList.remove('show');
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (isLastLetter && isLocked) {
                     // Show message that it's locked
-                    unlockNotification.textContent = '🔒 Open other letters first to unlock the secret message! 🔒';
+                    unlockNotification.textContent = '🔒 Open 6 other letters first to unlock the secret message! 🔒';
                     unlockNotification.classList.add('show');
                     setTimeout(() => {
                         unlockNotification.classList.remove('show');
